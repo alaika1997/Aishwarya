@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+	<title>GAIUS x Aaruush</title>
+
+
+</head>
+<script src="//instant.page/1.1.0" type="module" integrity="sha384-EwBObn5QAxP8f09iemwAJljc+sU+eUXeL9vSBw1eNmVarwhKk2F9vBEpaN9rsrtp"></script>
+<body>
+
+	<div class="container">
+	  <div class="jumbotron">
+	  	<center>
+	    	<h1>GAIUS x Aaruush</h1>      
+	    	<p>It's Aaruush 2019! <i class="fa fa-grav"></i></p>
+	    </center>
+	  </div>
+	</div>
+
+	<center>
+
+    <section id="home" class="s-home page-hero target-section" data-parallax="scroll" data-image-src="" data-natural-width=2000 data-natural-height=1500 data-position-y=center>
+      Welcome to GAIUS Registration Platform<br>
+      You can register through the platform to attend workshops conducted by GAIUS
+      </section>
+      <section id="about" class="s-about target-section">
+      <div class="container">
+
+      <div class="form-group">
+        <label class="h2" for="userworkshop">Which all workshops do you want to attend?</label>
+        <br>
+        <select class="form-control" id="userworkshopInput" onchange="createData()" multiple="multiple">
+
+          
+            <option value="None">None</option>
+          
+            <option value="Web Development Workshop">Web Development Workshop</option>
+          
+            <option value="AI Workshop">AI Workshop</option>
+          
+            <option value="Introduction to Python Workshop">Introduction to Python Workshop</option>
+          
+            <option value="Intro to Data Science">Intro to Data Science</option>
+          
+            <option value="Intro to Blockchain Technologies">Intro to Blockchain Technologies</option>
+          
+            <option value="Network &amp; Internet Technologies">Network &amp; Internet Technologies</option>
+          
+            <option value="Communication and Interview Prep">Communication and Interview Prep</option>
+          
+
+        </select>
+        </div>
+
+    </div>
+    </section>
+
+  </center>
+  
+
+<br><br>
+
+    <section id="data-entry">
+
+        <div class="container">
+
+            <div id="output"></div>
+
+            <form action="/register" method="POST">
+          <center>
+            <h2>And tell us more about you!</h2>
+          </center>
+              <input style="visibility:collapse" name="userworkshop" id="userworkshop">
+              <div class="form-group">
+                <label for="username">Name:</label>
+                <input type="text" class="form-control" name="username" id="username">
+              </div>
+              <div class="form-group">
+                <label for="useremail">Email:</label>
+                <input type="email" class="form-control" name="useremail" id="useremail">
+              </div>
+              <div class="form-group">
+                  <label for="userphone">Phone Number:</label>
+                  <input type="phone" class="form-control" name="userphone" id="userphone">
+                </div>
+
+                <center>
+                <button onclick="parseData()" class="btn btn-primary">Register</button>
+              </center>
+
+            </form>
+          </div>
+
+    </section>
+
+
+<br><br><hr><br><br>
+
+	<footer class="bottom"><center>
+		<i class="fa fa-copyright"></i> <code>GAIUS Networks</code><br><br>
+	</center></footer>
+
+</body>
+
+<script>
+  
+  function parseData() {
+    var inputtedData = document.getElementsByClassName("multiselect-selected-text")[0].innerText
+    document.getElementById("userworkshop").value = inputtedData;    
+  }
+
+  function createData() {
+    var inputtedData = document.getElementsByClassName("multiselect-selected-text")[0].innerText
+    document.getElementById("userworkshop").value = inputtedData;
+  }
+
+  $(document).ready(function() {
+        $('#userworkshopInput').multiselect({
+          includeSelectAllOption: true,
+        });
+    });
+
+</script>
+
+
+</html>
